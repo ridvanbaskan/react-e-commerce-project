@@ -1,0 +1,23 @@
+.checkout {
+  width: 55%;
+  margin: 5rem auto 5rem auto;
+  text-align: center;
+  .checkout-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .total-cost {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .test-warning {
+    font-size: 1.5rem;
+    margin: 2.5rem 0;
+    text-align: center;
+    color: red;
+  }
+}

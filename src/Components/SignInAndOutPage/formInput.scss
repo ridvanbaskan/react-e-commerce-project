@@ -1,0 +1,28 @@
+.form-group {
+  position: relative;
+  .form-input {
+    width: 100%;
+    color: grey !important;
+    background: none;
+    background-color: white !important;
+    display: block;
+    margin-bottom: 5rem;
+    border: none;
+    border-bottom: 1px solid grey;
+    &:focus ~ .form-label {
+      top: -35px;
+      outline: none;
+    }
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+.form-label {
+  position: absolute;
+  top: -20px;
+  font-weight: 100;
+  color: #555;
+  transition: all 300ms ease;
+}

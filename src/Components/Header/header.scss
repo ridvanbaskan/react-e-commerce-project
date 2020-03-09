@@ -1,0 +1,22 @@
+.header {
+  position: relative;
+  width: 85vw;
+  margin: 3rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo-container {
+    margin-left: 1rem;
+  }
+  .options {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-weight: 600;
+    .option {
+      padding: 0 1.5rem;
+      cursor: pointer;
+    }
+  }
+}

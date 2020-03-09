@@ -1,0 +1,14 @@
+.category-page {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  .items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    & .collection-item {
+      width: 20vw;
+      margin-bottom: 30px;
+    }
+  }
+}
