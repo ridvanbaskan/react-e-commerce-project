@@ -6,20 +6,20 @@ import Header from './Components/Header/Header';
 import Checkout from './Components/Checkout/Checkout';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { auth } from './firebase/firebase.utils';
+import { auth, addCollectionAndDocuments } from './firebase/firebase.utils';
 import { createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
+// import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
 import './App.css';
 import SignInAndOutPage from './Components/SignInAndOutPage/SignInAndOutPage';
 
 function App(props) {
-  const { currentUser, setCurrentUser } = props;
+  const { currentUser, setCurrentUser, collectionsArray } = props;
 
-  const unSubscribeFromAuth = () => null;
   useEffect(() => {
-    auth.onAuthStateChanged(async userAuth => {
+    const unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapShot => {
@@ -27,11 +27,16 @@ function App(props) {
         });
       }
       setCurrentUser(userAuth);
+      // addCollectionAndDocuments(
+      //   'collections',
+      //   collectionsArray.map(({ title, items }) => ({ title, items }))
+      // );
+      return () => {
+        unSubscribeFromAuth();
+      };
     });
   }, [setCurrentUser]);
-  useEffect(() => {
-    unSubscribeFromAuth();
-  }, []);
+
   return (
     <div>
       <Header />
@@ -53,6 +58,7 @@ function App(props) {
 
 const mapStateToProps = state => ({
   currentUser: selectCurrentUser(state)
+  // collectionsArray: selectCollectionsForPreview(state)
 });
 
 const mapDispatchToProps = dispatch => ({

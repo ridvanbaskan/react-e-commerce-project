@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import CollectionsOverview from './CollectionsOverview';
-import CollectionPage from '../CollectionPage/CollectionPage';
+import CollectionsOverviewContainer from './CollectionsOverviewContainer';
+import CollectionPageContainer from '../CollectionPage/CollectionPageContainer';
+import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions';
 
-function Shoppage({ match }) {
-  console.log(match);
+function Shoppage({ match, fetchCollectionsStartAsync }) {
+  useEffect(() => {
+    fetchCollectionsStartAsync();
+  }, [fetchCollectionsStartAsync]);
+
   return (
     <div className="shop-page">
-      <Route exact path={`${match.path}`} component={CollectionsOverview} />
-      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+      <Route
+        exact
+        path={`${match.path}`}
+        component={CollectionsOverviewContainer}
+      />
+      <Route
+        path={`${match.path}/:collectionId`}
+        component={CollectionPageContainer}
+      />
     </div>
   );
 }
 
-export default Shoppage;
+const mapDispatchToProps = dispatch => ({
+  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
+});
+
+export default connect(null, mapDispatchToProps)(Shoppage);

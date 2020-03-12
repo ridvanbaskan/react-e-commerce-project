@@ -1,11 +1,11 @@
 import React from 'react';
-import './homepage.scss';
 import MenuList from './MenuList';
+import { HomepageContainer } from './Homepage.styles';
 
 export default function Homepage() {
   return (
-    <div className="homepage">
+    <HomepageContainer>
       <MenuList />
-    </div>
+    </HomepageContainer>
   );
 }

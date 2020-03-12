@@ -6,7 +6,6 @@ import CollectionList from './CollectionList';
 import './CollectionsOverview.scss';
 
 function CollectionsOverview({ collections }) {
-  console.log(collections);
   return (
     <div className="collections-overview">
       {collections.map(({ id, ...otherShopProps }) => (
