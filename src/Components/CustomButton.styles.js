@@ -48,4 +48,10 @@ export const CustomButtonContainer = styled.button`
     border: 1px solid black;
   }
   ${getButtonStyles}
+  @media (max-width: 800px) {
+    width: 135px;
+    min-width: unset;
+    font-size: 0.8rem;
+    padding: 0 5px;
+  }
 `;

@@ -18,6 +18,11 @@
       outline: none;
     }
   }
+  @media (max-width: 800px) {
+    .form-input {
+      width: 90%;
+    }
+  }
 }
 .form-label {
   position: absolute;

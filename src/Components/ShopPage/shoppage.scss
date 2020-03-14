@@ -2,4 +2,7 @@
   height: 100vh;
   padding: 2rem 4rem;
   margin: auto;
+  @media (max-width: 800px) {
+    padding: 2rem;
+  }
 }

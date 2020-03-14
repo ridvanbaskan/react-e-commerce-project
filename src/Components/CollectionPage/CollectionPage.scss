@@ -11,4 +11,12 @@
       margin-bottom: 30px;
     }
   }
+  @media (max-width: 800px) {
+    .items {
+      grid-template-columns: 1fr 1fr;
+      .collection-item {
+        width: 41vw;
+      }
+    }
+  }
 }

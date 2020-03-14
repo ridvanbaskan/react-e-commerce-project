@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 const option = css`
   padding: 0 1.5rem;
   cursor: pointer;
+  @media (max-width: 800px) {
+    padding: 0 0.5rem;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -18,11 +21,14 @@ export const HeaderContainer = styled.div`
 `;
 
 export const OptionsContainer = styled.div`
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: flex-end;
   font-size: 1.2rem;
   font-weight: 600;
+  @media (max-width: 800px) {
+    font-size: 1rem;
+  }
 `;
 
 export const OptionLink = styled(Link)`
